@@ -51,3 +51,5 @@
 
 (package! rime)
 ;;(package! mozc)
+
+(package! pangu-spacing)

@@ -22,9 +22,7 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "CaskaydiaCove Nerd Font Mono" :size 17 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "CaskaydiaCove Nerd Font Mono")
-      doom-unicode-font (font-spec :family "更纱黑体 Mono SC Nerd"))
+(setq doom-font (font-spec :family "更纱黑体 Mono SC Nerd" :size 17 :weight 'normal))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -116,3 +114,24 @@
 
 (wsl--open-with open-in-default-program "explorer.exe" buffer-file-name)
 (wsl--open-with reveal-in-explorer "explorer.exe" default-directory)
+
+(use-package! org-superstar
+  :config
+  ;; set basic title font
+  ;;(set-face-attribute 'org-level-8 nil :foreground "grey" :weight 'bold :inherit 'default)
+  ;; Low levels are unimportant => no scaling
+  ;;(set-face-attribute 'org-level-7 nil :inherit 'org-level-8)
+  ;;(set-face-attribute 'org-level-6 nil :inherit 'org-level-8)
+  ;;(set-face-attribute 'org-level-5 nil :inherit 'org-level-8)
+  ;;(set-face-attribute 'org-level-4 nil :inherit 'org-level-8)
+  (set-face-attribute 'org-level-3 nil :height 1.0) ;\large
+  (set-face-attribute 'org-level-2 nil :height 1.0) ;\Large
+  (set-face-attribute 'org-level-1 nil :height 1.2) ;\LARGE
+  ;; Only use the first 4 styles and do not cycle.
+  (setq org-cycle-level-faces nil)
+  (setq org-n-level-faces 4)
+(setq org-superstar-headline-bullets-list
+      '("◉" "○" "⁖" "⁘" "⁙" "⁜" "▷"))
+;; Stop cycling bullets to emphasize hierarchy of headlines.
+(setq org-superstar-cycle-headline-bullets nil)
+  )
